@@ -34,6 +34,8 @@ class Mailbox():
     def close(self):
         self.pop_conn.quit()
 
-    def get_message_data(self, message):
-        z = message.get_payload(1)
-        return z.get_payload(decode=True)
+    def get_message_data(self, inputMessage):
+        message = inputMessage
+        if message.is_multipart():
+            message = message.get_payload(1)
+        return message.get_payload(decode=True)
