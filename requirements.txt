@@ -1,0 +1,12 @@
+beautifulsoup4==4.4.1
+chardet==2.3.0
+colorama==0.3.3
+devscripts==2.15.9
+html5lib==0.999
+python-apt==1.0.1
+requests==2.7.0
+six==1.9.0
+unattended-upgrades==0.1
+urllib3==1.11
+virtualenv==1.11.6
+wheel==0.26.0
