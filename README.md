@@ -1,6 +1,9 @@
 # hyper_client
 hyper_client
 
+# install
+pip install -r requirements.txt
+
 # param.py
 Для запуска -  пример param.py, который надо создать в корне
 SERVER = 'pop.gmail.com'
