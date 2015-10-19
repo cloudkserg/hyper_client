@@ -15,7 +15,7 @@ class HyperMailbox(mailbox.Mailbox):
         return hyper_messages
 
     def _find_comment_link(self, s):
-        return s.find('a', string="Show on page")
+        return s.find('a', href=re.compile('#hcm=\w+'))
 
     def get_comments(self):
         hyper_comments = []
