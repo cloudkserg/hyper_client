@@ -6,10 +6,12 @@ class HyperComment():
     nick = None
     text = None
     time = None
+    link = None
 
     def __init__(self, comment_id, page):
         self.comment_id = comment_id
         self.page = page
+        self.link = self.page.link + '#hcm=' + self.comment_id
 
 
     def load_data(self, api):

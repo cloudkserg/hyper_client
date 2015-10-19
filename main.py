@@ -17,7 +17,14 @@ for hyper_comment in hyper_comments:
 
 
 for hyper_comment in hyper_comments:
-    HipChat.send_message(HIPCHAT_URL, 'На странице ' + hyper_comment.page.title + ' оставлен комментарий от ' + hyper_comment.nick + ' с текстом ' + hyper_comment.text)
+    HipChat.send_message(HIPCHAT_URL, 
+            "На странице\n" +
+            hyper_comment.page.title + "\n" +
+            hyper_comment.page.link + "\n" +
+            "оставлен комментарий от " + hyper_comment.nick + "с текстом:\n" +
+            hyper_comment.text  + "\n" +
+            hyper_comment.link
+    )
 
 print('Выслано уведомление об {0} комментариях'.format(len(hyper_comments)))
 
