@@ -2,6 +2,7 @@ import mailbox
 from bs4 import BeautifulSoup
 from page import Page 
 import hyper_comment
+import re
 from urllib.parse import urlparse
 
 
