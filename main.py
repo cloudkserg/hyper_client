@@ -2,7 +2,7 @@ import sys
 import hyper_mailbox
 import hyper_api
 from hipchat_api import HipChat
-
+import time
 
 from param import *
 
@@ -23,6 +23,7 @@ for hyper_comment in hyper_comments:
             hyper_comment.page.link + "\n" +
             "оставлен комментарий от " + hyper_comment.nick + "с текстом:\n" +
             hyper_comment.text  + "\n" +
+            time.strftime('%d %b %Y, %H:%M', hyper_comment.time) + "\n" +
             hyper_comment.link
     )
 

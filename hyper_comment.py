@@ -1,3 +1,4 @@
+import time
 class HyperComment():
     comment_id = None
     page = None
@@ -14,6 +15,9 @@ class HyperComment():
         self.link = self.page.link + '#hcm=' + self.comment_id
 
 
+    def _parse_time(self, data):
+        return time.localtime(int(data['unixtime']))
+
     def load_data(self, api):
         data = api.get_comment_data(self.page.link, self.comment_id, self.page.xid)
         if len(data) == 0:
@@ -22,13 +26,13 @@ class HyperComment():
         self.page.title = data['page_title']
 
         self.text = data['text']
-        self.time = data['time']
+        self.time = self._parse_time(data)
         self.nick = data['nick']
 
         if data['parent_id'] is not None:
             parent_comment = HyperComment(data['parent_id'], self.page)
             parent_comment.text = data['text']
-            parent_comment.time = data['time']
+            parent_comment.time = self._parse_time(data)
             parent_comment.nick = data['nick']
 
             self.parent_comment = parent_comment

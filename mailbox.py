@@ -37,5 +37,5 @@ class Mailbox():
     def get_message_data(self, inputMessage):
         message = inputMessage
         if message.is_multipart():
-            message = message.get_payload(1)
+            return message.get_payload(1).get_payload(decode=True)
         return message.get_payload(decode=True).decode('utf-8')
