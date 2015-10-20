@@ -24,7 +24,7 @@ for hyper_comment in hyper_comments:
 
 
 for hyper_comment in hyper_comments:
-    HipChatApi.send_message(
+    HipchatApi.send_message(
             HIPCHAT_URL, 
             "На странице\n" +
                 hyper_comment.page.title + "\n" +
