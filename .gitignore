@@ -1,2 +1,8 @@
 conf/param.py
 store/comment_store.sqlite
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
