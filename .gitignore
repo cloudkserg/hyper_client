@@ -1,1 +1,2 @@
-param.py
+conf/param.py
+store/comment_store.sqlite

@@ -1,12 +1,12 @@
-import mailbox
 from bs4 import BeautifulSoup
-from page import Page 
-import hyper_comment
 import re
 from urllib.parse import urlparse
+from .mailbox import Mailbox
+from .page import Page
+from .hyper_comment import HyperComment
 
 
-class HyperMailbox(mailbox.Mailbox):
+class HyperMailbox(Mailbox):
 
     def _get_hyper_messages(self):
         hyper_messages = []
@@ -32,8 +32,11 @@ class HyperMailbox(mailbox.Mailbox):
             comment_id = o.fragment.split('=')[1]
 
             page = Page(o.scheme + '://' + o.netloc + o.path, o.scheme)
-            comment = hyper_comment.HyperComment(comment_id, page)
+            comment = HyperComment(comment_id, page)
 
             hyper_comments.append(comment)
 
         return hyper_comments
+
+    def get_fresh_comments(self, comment_store):
+        return [comment for comment in self.get_comments() if comment_store.has_not_comment(comment)]

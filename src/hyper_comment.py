@@ -18,8 +18,8 @@ class HyperComment():
     def _parse_time(self, data):
         return time.localtime(int(data['unixtime']))
 
-    def load_data(self, api):
-        data = api.get_comment_data(self.page.link, self.comment_id, self.page.xid)
+    def load_data(self, hyper_api):
+        data = hyper_api.get_comment_data(self.page.link, self.comment_id, self.page.xid)
         if len(data) == 0:
             raise Exception('Not find data for comment {0} page {1} '.format(self.comment_id, self.page.xid))
         
@@ -36,4 +36,5 @@ class HyperComment():
             parent_comment.nick = data['nick']
 
             self.parent_comment = parent_comment
+
 

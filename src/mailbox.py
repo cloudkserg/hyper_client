@@ -20,7 +20,7 @@ class Mailbox():
         self.pop_conn.pass_(self.password)
 
     def get_messages(self):
-        full_messages = [self.pop_conn.retr(i) for i in range(1, len(self.pop_conn.list()[1]) + 1)]
+        full_messages = [self.pop_conn.top(i, 4000) for i in range(1, len(self.pop_conn.list()[1]) + 1)]
         messages = []
         for full_message in full_messages:
             parts = []

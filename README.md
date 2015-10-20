@@ -4,9 +4,11 @@ hyper_client
 # install
 pip install -r requirements.txt
 
-# param.py
-Для запуска -  пример param.py, который надо создать в корне
-SERVER = 'pop.gmail.com'
+# Запуск
+# Делаем из базы conf/comment_store.sqlite.dest файл conf/comment_store.sqlite
+# Делаем из conf/param.py.dest файл conf/param.py
+
+#example param.py
 USER = 'hoper@gmail.com'
 PASSWORD = 'selenium'
 
@@ -14,6 +16,7 @@ WIDGET_ID = 27798
 KEY = '32323423'
 
 HIPCHAT_URL = 'https://api.hipchat.com/v2/room/23423423'
+DATABASE_FILE = 'comment_store.sqlite'
 
 # description param.py
 
@@ -25,9 +28,11 @@ WIDGET_ID - ид виджет hyper comment
 KEY - ключ для hyper comment
 
 HIPCHAT_URL - юрл для группы hipchat, куда слать комментарии (полученный https://www.hipchat.com/docs/apiv2)
+DATABASE_FILE - файл с базой данных sqlite3
+
 
 # run
-Запускать - envname/bin/python3 main.py
+Запускать - python3 main.py
 
 # description
 Берет новую почту с адреса - USER,

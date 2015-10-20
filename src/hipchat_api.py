@@ -1,7 +1,7 @@
 import requests
 import json
 
-class HipChat():
+class HipchatApi():
 
 
     def send_message(url, msg, notify = "false", color = "green", message_format = "text"):
